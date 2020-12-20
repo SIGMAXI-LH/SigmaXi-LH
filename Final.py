@@ -1,4 +1,5 @@
 import requests
+import json
 import spotipy
 import os
 import spotipy.oauth2 as oauth2
@@ -94,8 +95,56 @@ model.fit(X_transformed)
 cluster = model.predict(X_transformed)
 data['cluster'] = cluster
 data.head()
+def csv_to_json(csvFilePath, jsonFilePath):
+    jsonArray = []
+      
+    with open(csvFilePath, encoding='utf-8') as csvf: 
+        
+        csvReader = csv.DictReader(csvf) 
+
+        
+        for row in csvReader: 
+            
+            jsonArray.append(row)
+  
+    
+    with open(jsonFilePath, 'w', encoding='utf-8') as jsonf: 
+        jsonString = json.dumps(jsonArray, indent=4)
+        jsonf.write(jsonString)
+          
+
+
 for i in range(7):
     temp=data.loc[data['cluster']==i]
     temp.to_csv(f'HSAFS{i}.csv')
-
+    if i==0:
+        csvFilePath = r'HSAFS0.csv'
+        jsonFilePath = r'HSAFS0.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==1:
+        csvFilePath = r'HSAFS1.csv'
+        jsonFilePath = r'HSAFS1.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==2:
+        csvFilePath = r'HSAFS2.csv'
+        jsonFilePath = r'HSAFS2.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==3:
+        csvFilePath = r'HSAFS3.csv'
+        jsonFilePath = r'HSAFS3.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==4:
+        csvFilePath = r'HSAFS4.csv'
+        jsonFilePath = r'HSAFS4.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==5:
+        csvFilePath = r'HSAFS5.csv'
+        jsonFilePath = r'HSAFS5.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    if i==6:
+        csvFilePath = r'HSAFS6.csv'
+        jsonFilePath = r'HSAFS6.json'
+        csv_to_json(csvFilePath, jsonFilePath)
+    
+  
 os.remove("protagonist.csv")
