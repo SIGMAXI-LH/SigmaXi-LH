@@ -105,4 +105,4 @@ model.fit(X_transformed)
 cluster = model.predict(X_transformed)
 data['cluster'] = cluster
 data.head()
-print(data)
+print(data['name'],data['cluster'])
