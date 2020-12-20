@@ -119,31 +119,31 @@ for i in range(7):
     temp.to_csv(f'HSAFS{i}.csv')
     if i==0:
         csvFilePath = r'HSAFS0.csv'
-        jsonFilePath = r'HSAFS0.json'
+        jsonFilePath = r'happy.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==1:
         csvFilePath = r'HSAFS1.csv'
-        jsonFilePath = r'HSAFS1.json'
+        jsonFilePath = r'suprise.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==2:
         csvFilePath = r'HSAFS2.csv'
-        jsonFilePath = r'HSAFS2.json'
+        jsonFilePath = r'fun.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==3:
         csvFilePath = r'HSAFS3.csv'
-        jsonFilePath = r'HSAFS3.json'
+        jsonFilePath = r'sad.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==4:
         csvFilePath = r'HSAFS4.csv'
-        jsonFilePath = r'HSAFS4.json'
+        jsonFilePath = r'neutral.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==5:
         csvFilePath = r'HSAFS5.csv'
-        jsonFilePath = r'HSAFS5.json'
+        jsonFilePath = r'disgust.json'
         csv_to_json(csvFilePath, jsonFilePath)
     if i==6:
         csvFilePath = r'HSAFS6.csv'
-        jsonFilePath = r'HSAFS6.json'
+        jsonFilePath = r'Angry.json'
         csv_to_json(csvFilePath, jsonFilePath)
     
   
