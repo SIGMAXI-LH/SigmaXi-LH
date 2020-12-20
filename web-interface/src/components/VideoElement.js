@@ -1,6 +1,11 @@
 import React from 'react'
 import Webcam from "react-webcam";
 import './VideoElement.css'
+import Mood from './Mood'
+import { saveAs } from 'file-saver';
+import {Link} from 'react-router-dom'
+var FileSaver = require('file-saver');
+
 const WebcamComponent = () => <Webcam />;
 const WebcamStreamCapture = () => {
     const webcamRef = React.useRef(null);
@@ -21,7 +26,7 @@ const WebcamStreamCapture = () => {
     }, [webcamRef, setCapturing, mediaRecorderRef]);
   
     const handleDataAvailable = React.useCallback(
-      ({ data }) => {
+      ({ data }) => {     
         if (data.size > 0) {
           setRecordedChunks((prev) => prev.concat(data));
         }
@@ -48,6 +53,7 @@ const WebcamStreamCapture = () => {
         a.click();
         window.URL.revokeObjectURL(url);
         setRecordedChunks([]);
+
       }
     }, [recordedChunks]);
   
@@ -60,7 +66,7 @@ const WebcamStreamCapture = () => {
           <button className="button" onClick={handleStartCaptureClick}>Start Capture</button>
         )}
         {recordedChunks.length > 0 && (
-          <button className="button" style={{marginLeft:"10px"}} onClick={handleDownload}>Download</button>
+         <Link to="/mood"><button className="button" style={{marginLeft:"10px"}} onClick={handleDownload}>Detect Mood</button></Link> 
         )}
       </>
     );
